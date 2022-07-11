@@ -40,7 +40,8 @@ function currentMoney(element, milSep, decSep, e) {
     console.log(whichCode)
     // if (whichCode == 6) return true;  // Enter
         key = String.fromCharCode(whichCode);  // Get key value from key code
-    // if (strCheck.indexOf(key) == -1) return false;  // Not a valid key
+        console.log(key)
+    if (strCheck.indexOf(key) == -1) return false;  // Not a valid key
         len = element.value.length;
 
     for(i = 0; i < len; i++){
