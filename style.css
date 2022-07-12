@@ -12,3 +12,12 @@ body{
     align-items: center;
 
 }
+
+
+#area {
+    width: 95%;
+    box-sizing: border-box;
+    height: 250px;
+    border: 1px solid black;
+    display: block;
+  }
