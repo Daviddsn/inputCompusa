@@ -9,7 +9,7 @@
 <body>
     <form action="/" >
         <label for="value" id="value" >Valor</label>
-        <input type="tel"  onkeyup="return(currencyFormat(this,'.',',',event))" />
+        <input type="tel"  onkeypress="return(currencyFormat(this,'.',',',event))" />
 
 
         <textarea id="area" readonly></textarea>
