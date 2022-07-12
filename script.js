@@ -30,6 +30,7 @@
 
 function currentMoney(element, milSep, decSep, e) {
 
+    let area = document.querySelector("#area")
     area.scrollTop = 1e6;
     
     var key = '';
@@ -43,8 +44,8 @@ function currentMoney(element, milSep, decSep, e) {
     // if (whichCode == 6) return true;  // Enter
         key = String.fromCharCode(whichCode);  // Get key value from key code
     
-     area.value += key + '/n';
-         
+     area.value += key + "\n";
+
     if (strCheck.indexOf(key) == -1) {
         console.log(key)
         return false;  // Not a valid key
