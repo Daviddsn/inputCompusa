@@ -3,28 +3,29 @@
 //   };
   
 
-// function currentMoney(element,e){
+function currentMoney(element,e){
     
-//     if(!element.value){
-//         return false;
-//     }
+    
+    if(!element.value){
+        return false;
+    }
 
-//     let valor = element.value.replace(/[^\d]+/gi,''); // remove Caracteres alfabéticos;
-//     var formatterBRL = new Intl.NumberFormat('pt-BR',{
-//         maximumSignificantDigits: 2
-//       });
+    let valor = element.value.replace(/[^\d]+/gi,''); // remove Caracteres alfabéticos;
+    var formatterBRL = new Intl.NumberFormat('pt-BR',{
+        maximumSignificantDigits: 2
+      });
     
-//       while(valor.length < 3) {
-//          valor += '0'
-//       }
+      while(valor.length < 3) {
+         valor += '0'
+      }
     
-//     var resultado = valor.reverse()
-//     resultado = valor.substring(0, resultado.length - 1)
-//     // resultado = formatterBRL.format(0.2233 + 0.1)
+    var resultado = valor.reverse()
+    resultado = valor.substring(0, resultado.length - 1)
+    // resultado = formatterBRL.format(0.2233 + 0.1)
     
-//     element.value = resultado
+    element.value = resultado
     
-// }
+}
 
 
 
@@ -33,26 +34,20 @@ function currentMoney(element, milSep, decSep, e) {
     let area = document.querySelector("#area")
     area.scrollTop = 1e6;
     
-    var key = '';
+
     var i = j = 0;
     var len = len2 = 0;
     var strCheck = '0123456789';
     var aux = '';
     var aux2 = '';
-    var whichCode = (window.Event) ? e.which : e.keyCode;
-    console.log(whichCode)
-    // if (whichCode == 6) return true;  // Enter
-        key = String.fromCharCode(whichCode);  // Get key value from key code
-    
-     area.value += key + "\n";
 
-    if (strCheck.indexOf(key) == -1) {
-        console.log(key)
-        return false;  // Not a valid key
-        
+
+    let valor = element.value.replace(/[^\d]+/gi,'');    
+    len = element.value.length;
+    if (strCheck.indexOf(element.value.charAt(len -1)) == -1) {
+        return false;
     }
-        
-        len = element.value.length;
+    area.value += " -- " + element.value + "\n";
 
     for(i = 0; i < len; i++){
         if ((element.value.charAt(i) != '0') && (element.value.charAt(i) != decSep)){
@@ -64,7 +59,7 @@ function currentMoney(element, milSep, decSep, e) {
        
     for(; i < len; i++)
         if (strCheck.indexOf(element.value.charAt(i))!=-1) aux += element.value.charAt(i);
-            aux += key;
+        
         len = aux.length;
     if (len == 0) element.value = '';
     if (len == 1) element.value = '0'+ decSep + '0' + aux;
@@ -89,5 +84,4 @@ function currentMoney(element, milSep, decSep, e) {
         element.value += decSep + aux.substring(len - 2, len);
         
     }
-    return false;
 }
